@@ -1,0 +1,445 @@
+.blood-requests {
+  padding: 40px 0;
+  background: linear-gradient(135deg, #fff5f5, #ffe6e6);
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.stats-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.total-requests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.total-requests .count {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.total-requests .label {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background: #28a745;
+  border-radius: 50%;
+  animation: pulse-live 2s infinite;
+}
+
+@keyframes pulse-live {
+  0% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% { 
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% { 
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+.urgency-stats {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.urgency-stats h3 {
+  color: var(--maroon);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.urgency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.urgency-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.urgency-card:hover {
+  transform: translateY(-3px);
+}
+
+.urgency-card.critical {
+  background: linear-gradient(135deg, #fff5f5, #ffe6e6);
+  border: 2px solid #dc3545;
+}
+
+.urgency-card.high {
+  background: linear-gradient(135deg, #fff8f0, #ffede0);
+  border: 2px solid #fd7e14;
+}
+
+.urgency-card.medium {
+  background: linear-gradient(135deg, #fffbf0, #fff3cd);
+  border: 2px solid #ffc107;
+}
+
+.urgency-card.low {
+  background: linear-gradient(135deg, #f0fff4, #d4edda);
+  border: 2px solid #28a745;
+}
+
+.urgency-icon {
+  font-size: 2rem;
+}
+
+.urgency-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.urgency-info .count {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--maroon);
+}
+
+.urgency-info .label {
+  color: #666;
+  font-size: 1rem;
+}
+
+.filters-section {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--maroon);
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 16px;
+  background: white;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px;
+  color: var(--maroon);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--maroon);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.no-requests {
+  text-align: center;
+  padding: 60px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.requests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.request-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 5px solid;
+}
+
+.request-card.critical {
+  border-left-color: #dc3545;
+  animation: pulse-critical 2s infinite;
+}
+
+.request-card.high {
+  border-left-color: #fd7e14;
+}
+
+.request-card.medium {
+  border-left-color: #ffc107;
+}
+
+.request-card.low {
+  border-left-color: #28a745;
+}
+
+@keyframes pulse-critical {
+  0% { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 5px 25px rgba(220, 53, 69, 0.3); }
+  100% { box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+}
+
+.request-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.request-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.patient-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.patient-info h3 {
+  color: var(--maroon-dark);
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.blood-group-badge {
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.urgency-badge {
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.request-details {
+  margin-bottom: 20px;
+}
+
+.detail-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.detail-item .icon {
+  width: 20px;
+  font-size: 1.1rem;
+}
+
+.overdue {
+  color: #dc3545 !important;
+  font-weight: bold;
+}
+
+.hospital-info,
+.requester-info {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.notes {
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+  color: #856404;
+}
+
+.request-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.status-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.status-badge {
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.request-date {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons .btn {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #218838;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+@media (max-width: 768px) {
+  .stats-summary {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .urgency-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .request-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .detail-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .request-footer {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,385 @@
+.donor-profile {
+  padding: 40px 0;
+  background: linear-gradient(135deg, #fff5f5, #ffe6e6);
+  min-height: 100vh;
+}
+
+.donor-profile.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  text-align: center;
+  color: var(--maroon);
+}
+
+.loading-spinner .spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--maroon);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--maroon);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(128, 0, 32, 0.1);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.donor-card {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.donor-avatar-large {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 25px rgba(128, 0, 32, 0.3);
+}
+
+.donor-basic-info h1 {
+  color: var(--maroon-dark);
+  margin-bottom: 15px;
+  font-size: 2.2rem;
+}
+
+.blood-group-large {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+  color: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.blood-group-large select {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.donor-status {
+  margin-top: 15px;
+}
+
+.status-badge {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.status-badge.eligible {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.not-eligible {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.edit-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.edit-form input {
+  padding: 10px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.profile-details {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-section {
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.details-section:last-child {
+  border-bottom: none;
+}
+
+.details-section h3 {
+  color: var(--maroon);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detail-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.detail-item .label {
+  font-weight: bold;
+  color: var(--maroon-dark);
+  font-size: 0.9rem;
+}
+
+.detail-item .value {
+  color: #666;
+  font-size: 1rem;
+}
+
+.detail-item input,
+.detail-item select,
+.detail-item textarea {
+  padding: 8px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.detail-item input:focus,
+.detail-item select:focus,
+.detail-item textarea:focus {
+  outline: none;
+  border-color: var(--maroon);
+}
+
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.qr-section,
+.donation-history,
+.quick-actions {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.qr-section h3,
+.donation-history h3,
+.quick-actions h3 {
+  color: var(--maroon);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.qr-code-container {
+  text-align: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.qr-section p {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.history-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.history-date {
+  font-weight: bold;
+  color: var(--maroon);
+  font-size: 0.9rem;
+}
+
+.history-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.history-location {
+  font-weight: 500;
+  color: #333;
+}
+
+.history-units {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.history-status {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.history-status.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.action-buttons .btn {
+  justify-content: flex-start;
+  text-align: left;
+  padding: 12px 15px;
+}
+
+.error-message {
+  text-align: center;
+  padding: 60px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.error-message h2 {
+  color: var(--maroon);
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .profile-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .donor-card {
+    padding: 30px 20px;
+  }
+  
+  .donor-avatar-large {
+    width: 100px;
+    height: 100px;
+    font-size: 2.5rem;
+  }
+  
+  .donor-basic-info h1 {
+    font-size: 1.8rem;
+  }
+}
+/* Permission-based styling */
+.view-only-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  color: #856404;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #ffc107;
+}
+
+.notice-icon {
+  font-size: 1.2rem;
+}
+
+/* Admin action buttons */
+.btn-danger {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #c82333, #a71e2a);
+}

@@ -1,0 +1,273 @@
+.blood-availability {
+  padding: 40px 0;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  color: #dc3545;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.search-section {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  align-items: end;
+}
+
+.availability-summary {
+  margin-bottom: 40px;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.summary-card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.card-icon {
+  font-size: 2rem;
+}
+
+.card-content h3 {
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.card-content p {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.count {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.availability-results h2 {
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.availability-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.location-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.location-info h3 {
+  color: #333;
+  margin: 0;
+}
+
+.blood-group-badge {
+  background: #dc3545;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.availability-status {
+  text-align: right;
+}
+
+.units {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.progress-bar {
+  width: 150px;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.availability-status.high .units {
+  color: #28a745;
+}
+
+.availability-status.high .progress-fill {
+  background: #28a745;
+}
+
+.availability-status.medium .units {
+  color: #ffc107;
+}
+
+.availability-status.medium .progress-fill {
+  background: #ffc107;
+}
+
+.availability-status.low .units {
+  color: #dc3545;
+}
+
+.availability-status.low .progress-fill {
+  background: #dc3545;
+}
+
+.blood-banks-breakdown h4 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.banks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.bank-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.bank-name {
+  color: #333;
+}
+
+.bank-units {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.card-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.emergency-section {
+  margin-top: 50px;
+}
+
+.emergency-card {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(220, 53, 69, 0.3);
+}
+
+.emergency-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.emergency-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.emergency-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.btn-danger {
+  background: white;
+  color: #dc3545;
+  border: 2px solid white;
+  font-weight: bold;
+}
+
+.btn-danger:hover {
+  background: transparent;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .location-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card-actions {
+    flex-direction: column;
+  }
+  
+  .banks-list {
+    grid-template-columns: 1fr;
+  }
+}
