@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { donorsAPI } from '../services/api'
 import './DonorRegistration.css'
 
 const DonorRegistration = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -37,12 +39,27 @@ const DonorRegistration = () => {
     setIsSubmitting(true)
 
     try {
-      await donorsAPI.register(formData)
+      const response = await donorsAPI.register(formData)
+      const newDonor = response.data.donor
+      const donorId = newDonor._id  // ← YOUR DONOR ID IS HERE!
+      
       toast.success('🎉 Registration successful! Welcome to our donor community!')
+      
+      // You can now use the donor ID for various purposes:
+      console.log('Your Donor ID:', donorId)
+      
+      // Option 1: Navigate to donor profile
+      // navigate(`/donor-profile/${donorId}`)
+      
+      // Option 2: Store in localStorage for later use
+      // localStorage.setItem('myDonorId', donorId)
+      
+      // Option 3: Show the ID to user
+      toast.info(`Your Donor ID: ${donorId}`)
       
       // Trigger a custom event to notify other components
       window.dispatchEvent(new CustomEvent('donorRegistered', { 
-        detail: { donor: formData } 
+        detail: { donor: newDonor, donorId: donorId } 
       }))
       
       // Reset form
