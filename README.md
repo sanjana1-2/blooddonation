@@ -30,6 +30,20 @@ This portal serves as a comprehensive bridge between donors, hospitals, and bloo
 - **JWT & Bcrypt**: Secure authentication and password protection.
 - **Socket.io**: Real-time updates and notifications.
 
+## 📁 Project Structure
+
+```
+├── clientside/         # Frontend React Application
+│   ├── src/            # Source code
+│   ├── public/         # Static assets
+│   └── ...
+├── serverside/         # Backend Node.js Application
+│   ├── models/         # Database schemas
+│   ├── routes/         # API endpoints
+│   └── server.js       # Entry point
+└── README.md
+```
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -47,17 +61,18 @@ This portal serves as a comprehensive bridge between donors, hospitals, and bloo
 
 2. **Frontend Setup**
    ```bash
+   cd clientside
    npm install
    ```
 
 3. **Backend Setup**
    ```bash
-   cd server
+   cd ../serverside
    npm install
    ```
 
 4. **Environment Configuration**
-   Create a `.env` file in the `server` directory:
+   Create a `.env` file in the `serverside` directory:
    ```env
    MONGODB_URI=mongodb://localhost:27017/blooddonation
    JWT_SECRET=your_secret_key
@@ -71,12 +86,12 @@ This portal serves as a comprehensive bridge between donors, hospitals, and bloo
 
 ### Running the Application
 
-Start the backend (from the `server` directory):
+Start the backend (from the `serverside` directory):
 ```bash
 npm run dev
 ```
 
-Start the frontend (from the root directory):
+Start the frontend (from the `clientside` directory):
 ```bash
 npm run dev
 ```
@@ -101,7 +116,7 @@ For testing purposes, you can use the following credentials:
 │   ├── pages/          # Page-level components
 │   ├── services/       # API integration
 │   └── store/          # Redux state management
-├── server/             # Backend source code
+├── serverside/             # Backend source code
 │   ├── models/         # Database schemas
 │   ├── routes/         # API endpoints
 │   └── server.js       # Entry point

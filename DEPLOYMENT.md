@@ -119,8 +119,8 @@ Once your backend is deployed, update the environment variable:
 ### Step 2: Seed Production Database
 
 1. **Update Connection String**
-   - Update `server/.env` with Atlas connection string
-   - Run seeding script: `node server/seed.js`
+   - Update `serverside/.env` with Atlas connection string
+   - Run seeding script: `node serverside/seed.js`
 
 ## 🔧 Environment Variables Summary
 
@@ -129,7 +129,7 @@ Once your backend is deployed, update the environment variable:
 VITE_API_URL=https://your-backend-url.com/api
 ```
 
-### Backend (server/.env)
+### Backend (serverside/.env)
 ```
 MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/eraktkosh
 JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
