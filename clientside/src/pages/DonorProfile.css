@@ -59,7 +59,7 @@
 }
 
 .donor-card {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -137,14 +137,14 @@
 
 .edit-form input {
   padding: 10px 15px;
-  border: 2px solid #e9ecef;
+  border: 2px solid hsl(var(--border));
   border-radius: 8px;
   font-size: 1.1rem;
   text-align: center;
 }
 
 .profile-details {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -152,7 +152,7 @@
 
 .details-section {
   padding: 30px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid hsla(var(--border), 0.5);
 }
 
 .details-section:last-child {
@@ -191,7 +191,7 @@
 }
 
 .detail-item .value {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 1rem;
 }
 
@@ -199,7 +199,7 @@
 .detail-item select,
 .detail-item textarea {
   padding: 8px 12px;
-  border: 2px solid #e9ecef;
+  border: 2px solid hsl(var(--border));
   border-radius: 6px;
   font-size: 1rem;
 }
@@ -220,7 +220,7 @@
 .qr-section,
 .donation-history,
 .quick-actions {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -237,14 +237,14 @@
 .qr-code-container {
   text-align: center;
   padding: 20px;
-  background: #f8f9fa;
+  background-color: hsla(var(--muted), 0.3);
   border-radius: 10px;
   margin-bottom: 15px;
 }
 
 .qr-section p {
   text-align: center;
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 0.9rem;
 }
 
@@ -259,7 +259,7 @@
   grid-template-columns: auto 1fr auto;
   gap: 15px;
   padding: 15px;
-  background: #f8f9fa;
+  background-color: hsla(var(--muted), 0.3);
   border-radius: 8px;
   align-items: center;
 }
@@ -278,12 +278,12 @@
 
 .history-location {
   font-weight: 500;
-  color: #333;
+  color: hsl(var(--foreground));
 }
 
 .history-units {
   font-size: 0.8rem;
-  color: #666;
+  color: hsl(var(--muted-foreground));
 }
 
 .history-status {
@@ -313,7 +313,7 @@
 .error-message {
   text-align: center;
   padding: 60px;
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }

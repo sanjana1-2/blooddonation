@@ -1,6 +1,6 @@
 .blood-availability {
   padding: 40px 0;
-  background: #f8f9fa;
+  background-color: hsla(var(--muted), 0.3);
   min-height: 100vh;
 }
 
@@ -16,12 +16,12 @@
 }
 
 .page-header p {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 1.1rem;
 }
 
 .search-section {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 30px;
   border-radius: 10px;
   margin-bottom: 40px;
@@ -46,7 +46,7 @@
 }
 
 .summary-card {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -60,13 +60,13 @@
 }
 
 .card-content h3 {
-  color: #333;
+  color: hsl(var(--foreground));
   margin-bottom: 5px;
   font-size: 1.2rem;
 }
 
 .card-content p {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   margin-bottom: 10px;
   font-size: 0.9rem;
 }
@@ -77,7 +77,7 @@
 }
 
 .availability-results h2 {
-  color: #333;
+  color: hsl(var(--foreground));
   margin-bottom: 30px;
   font-size: 2rem;
 }
@@ -89,7 +89,7 @@
 }
 
 .availability-card {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -101,7 +101,7 @@
   align-items: center;
   margin-bottom: 25px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid hsla(var(--border), 0.5);
 }
 
 .location-info {
@@ -111,7 +111,7 @@
 }
 
 .location-info h3 {
-  color: #333;
+  color: hsl(var(--foreground));
   margin: 0;
 }
 
@@ -138,7 +138,7 @@
 .progress-bar {
   width: 150px;
   height: 8px;
-  background: #e9ecef;
+  background-color: hsl(var(--secondary));
   border-radius: 4px;
   overflow: hidden;
 }
@@ -173,7 +173,7 @@
 }
 
 .blood-banks-breakdown h4 {
-  color: #333;
+  color: hsl(var(--foreground));
   margin-bottom: 15px;
 }
 
@@ -188,12 +188,12 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
-  background: #f8f9fa;
+  background-color: hsla(var(--muted), 0.3);
   border-radius: 5px;
 }
 
 .bank-name {
-  color: #333;
+  color: hsl(var(--foreground));
 }
 
 .bank-units {
@@ -236,7 +236,7 @@
 }
 
 .btn-danger {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   color: #dc3545;
   border: 2px solid white;
   font-weight: bold;

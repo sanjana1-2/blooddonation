@@ -76,7 +76,7 @@
 }
 
 .emergency-form {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   border-radius: 15px;
   padding: 40px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -123,7 +123,7 @@
 .form-group textarea {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid #e9ecef;
+  border: 2px solid hsl(var(--border));
   border-radius: 8px;
   font-size: 16px;
   transition: all 0.3s ease;
@@ -169,7 +169,7 @@
 }
 
 .emergency-contacts {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -225,7 +225,7 @@
 }
 
 .contact-card span {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 0.9rem;
 }
 

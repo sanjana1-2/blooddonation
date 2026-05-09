@@ -23,7 +23,7 @@
 }
 
 .stat-card {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 2rem;
   border-radius: 20px;
   display: flex;
@@ -68,7 +68,7 @@
 }
 
 .chart-container {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 2rem;
   border-radius: 24px;
   box-shadow: var(--shadow-sm);
@@ -89,7 +89,7 @@
 }
 
 .analytics-section {
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   padding: 2.5rem;
   border-radius: 24px;
   box-shadow: var(--shadow-sm);

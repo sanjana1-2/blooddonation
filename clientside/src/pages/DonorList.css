@@ -35,7 +35,7 @@
 }
 
 .total-donors .label {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 1.1rem;
 }
 
@@ -139,34 +139,34 @@
 .search-input {
   width: 100%;
   padding: 10px 14px;
-  border: 1px solid #ddd;
+  border: 1px solid hsl(var(--border));
   border-radius: 8px;
   font-size: 15px;
   transition: all 0.3s ease;
-  background: #fafafa;
+  background-color: hsla(var(--muted), 0.2);
 }
 
 .search-input:focus {
   outline: none;
   border-color: var(--maroon);
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
 }
 
 .filter-group select {
   width: 100%;
   padding: 10px 14px;
-  border: 1px solid #ddd;
+  border: 1px solid hsl(var(--border));
   border-radius: 8px;
   font-size: 15px;
-  background: #fafafa;
+  background-color: hsla(var(--muted), 0.2);
   transition: all 0.3s ease;
 }
 
 .filter-group select:focus {
   outline: none;
   border-color: var(--maroon);
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   box-shadow: 0 0 0 3px rgba(128, 0, 32, 0.1);
 }
 
@@ -194,10 +194,10 @@
 .no-donors {
   text-align: center;
   padding: 40px;
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   border-radius: 12px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e9ecef;
+  border: 1px solid hsl(var(--border));
 }
 
 .empty-icon {
@@ -213,7 +213,7 @@
 }
 
 .no-donors p {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   margin: 0;
 }
 
@@ -248,7 +248,7 @@
   gap: 12px;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid hsla(var(--border), 0.4);
 }
 
 .donor-avatar {
@@ -286,7 +286,7 @@
 }
 
 .donor-email {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 0.85rem;
   white-space: nowrap;
   overflow: hidden;
@@ -313,7 +313,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 6px;
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 0.9rem;
 }
 
@@ -344,11 +344,11 @@
 
 .registration-date {
   text-align: center;
-  color: #999;
+  color: hsl(var(--muted-foreground));
   font-size: 0.75rem;
   padding-top: 8px;
-  border-top: 1px solid #f0f0f0;
-  background: #fafafa;
+  border-top: 1px solid hsl(var(--border));
+  background-color: hsla(var(--muted), 0.2);
   margin: 12px -20px -20px -20px;
   padding: 8px 20px;
   border-radius: 0 0 12px 12px;
@@ -456,9 +456,9 @@
 }
 
 .btn-secondary {
-  background: #f8f9fa;
+  background-color: hsla(var(--muted), 0.3);
   color: var(--maroon);
-  border: 1px solid #e9ecef;
+  border: 1px solid hsl(var(--border));
 }
 
 .btn-secondary:hover {
@@ -493,10 +493,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #e9ecef;
+  background-color: hsl(var(--secondary));
   padding: 10px 16px;
   border-radius: 20px;
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-weight: 500;
 }
 

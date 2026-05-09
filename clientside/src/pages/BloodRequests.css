@@ -35,7 +35,7 @@
 }
 
 .total-requests .label {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 1.1rem;
 }
 
@@ -135,7 +135,7 @@
 }
 
 .urgency-info .label {
-  color: #666;
+  color: hsl(var(--muted-foreground));
   font-size: 1rem;
 }
 
@@ -158,10 +158,10 @@
 .filter-group select {
   width: 100%;
   padding: 10px;
-  border: 2px solid #e9ecef;
+  border: 2px solid hsl(var(--border));
   border-radius: 8px;
   font-size: 16px;
-  background: white;
+  background-color: hsla(var(--card), 0.8);
 }
 
 .loading {
@@ -188,7 +188,7 @@
 .no-requests {
   text-align: center;
   padding: 60px;
-  background: white;
+  background-color: hsla(var(--card), 0.8);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -242,7 +242,7 @@
   align-items: center;
   margin-bottom: 20px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid hsla(var(--border), 0.5);
 }
 
 .patient-info {
@@ -296,7 +296,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
-  color: #666;
+  color: hsl(var(--muted-foreground));
 }
 
 .detail-item .icon {
@@ -311,7 +311,7 @@
 
 .hospital-info,
 .requester-info {
-  background: #f8f9fa;
+  background-color: hsla(var(--muted), 0.3);
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 15px;
@@ -330,7 +330,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 15px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid hsl(var(--border));
 }
 
 .status-info {
@@ -349,7 +349,7 @@
 }
 
 .request-date {
-  color: #999;
+  color: hsl(var(--muted-foreground));
   font-size: 0.9rem;
 }
 
