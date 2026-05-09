@@ -68,7 +68,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-rose-500 shrink-0" size={18} />
-                <span>contact@eraktkosh.in</span>
+                <span>contact@RaktSeva.in</span>
               </li>
             </ul>
           </div>
@@ -87,7 +87,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
-            <p className="text-sm">&copy; {new Date().getFullYear()} eRaktkosh Portal. All rights reserved.</p>
+            <p className="text-sm">&copy; {new Date().getFullYear()} RaktSeva Portal. All rights reserved.</p>
             <div className="flex gap-4 text-xs text-slate-500">
               <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>

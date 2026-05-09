@@ -1,4 +1,4 @@
-# 🩸 Blood Donation Portal (eccoRaktbandar) 
+# 🩸 Blood Donation Portal (RaktSeva)
 
 A professional healthcare platform designed to streamline blood donation management. This project is a modernized implementation of a blood donation portal, featuring a premium glassmorphism UI, real-time tracking, and role-based access control.
 
@@ -104,9 +104,9 @@ For testing purposes, you can use the following credentials:
 
 | Role | Email | Password |
 |------|-------|----------|
-| **Admin** | `admin@eraktkosh.in` | `admin123` |
-| **Donor** | `donor@eraktkosh.in` | `donor123` |
-| **Hospital** | `hospital@eraktkosh.in` | `hospital123` |
+| **Admin** | `admin@RaktSeva.in` | `admin123` |
+| **Donor** | `donor@RaktSeva.in` | `donor123` |
+| **Hospital** | `hospital@RaktSeva.in` | `hospital123` |
 
 ## 📁 Project Structure
 

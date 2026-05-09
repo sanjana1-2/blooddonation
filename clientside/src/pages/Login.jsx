@@ -162,15 +162,15 @@ const Login = () => {
             </div>
 
             <div className="grid grid-cols-3 gap-3">
-              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('admin@eraktkosh.in', 'admin123')}>
+              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('admin@RaktSeva.in', 'admin123')}>
                 <ShieldCheck size={16} className="text-rose-600" />
                 <span className="text-[10px] font-bold">Admin</span>
               </Button>
-              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('donor@eraktkosh.in', 'donor123')}>
+              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('donor@RaktSeva.in', 'donor123')}>
                 <User size={16} className="text-blue-600" />
                 <span className="text-[10px] font-bold">Donor</span>
               </Button>
-              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('hospital@eraktkosh.in', 'hospital123')}>
+              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('hospital@RaktSeva.in', 'hospital123')}>
                 <Building size={16} className="text-green-600" />
                 <span className="text-[10px] font-bold">Hospital</span>
               </Button>

@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
 app.set('socketio', io);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/eraktkosh', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/RaktSeva', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
@@ -69,7 +69,7 @@ app.use('/api/chats', require('./routes/chats'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/', (req, res) => {
-  res.json({ message: 'eRaktkosh Advanced Backend API' });
+  res.json({ message: 'RaktSeva Backend API' });
 });
 
 // Error Handling Middleware

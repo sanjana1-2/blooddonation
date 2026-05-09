@@ -84,7 +84,7 @@ const Register = () => {
                 <Heart className="text-white fill-white" size={24} />
               </div>
             </div>
-            <CardTitle className="text-3xl font-bold tracking-tight">Join eRaktkosh</CardTitle>
+            <CardTitle className="text-3xl font-bold tracking-tight">Join RaktSeva</CardTitle>
             <CardDescription className="text-slate-500 dark:text-slate-400">
               Create your account to start saving lives
             </CardDescription>
