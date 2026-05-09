@@ -21,10 +21,27 @@ const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(helmet({
-  contentSecurityPolicy: false, // For easier development
+  contentSecurityPolicy: false,
 }));
-app.use(morgan('dev'));
-app.use(cors());
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  /\.vercel\.app$/,        // any *.vercel.app subdomain
+  process.env.CLIENT_URL,  // custom domain if set
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // allow non-browser requests (Render health checks, etc.)
+    const allowed = allowedOrigins.some(o =>
+      typeof o === 'string' ? o === origin : o.test(origin)
+    );
+    callback(allowed ? null : new Error('CORS not allowed'), allowed);
+  },
+  credentials: true,
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
