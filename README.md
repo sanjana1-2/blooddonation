@@ -1,4 +1,4 @@
-# 🩸 Blood Donation Portal (eRaktkosh Clone)
+# 🩸 Blood Donation Portal (eccoRaktbandar) 
 
 A professional healthcare platform designed to streamline blood donation management. This project is a modernized implementation of a blood donation portal, featuring a premium glassmorphism UI, real-time tracking, and role-based access control.
 
