@@ -199,7 +199,7 @@ const BloodRequests = () => {
               {filteredRequests.map((request, index) => (
                 <div 
                   key={request._id || index} 
-                  className={`request-card ${request.urgency}`}
+                  className={`request-card ${request.urgency} glass-premium`}
                   onClick={() => navigate(`/request-profile/${request._id}`)}
                   style={{ cursor: 'pointer' }}
                 >

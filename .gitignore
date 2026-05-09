@@ -17,6 +17,13 @@ build/
 # OS files
 .DS_Store
 Thumbs.db
+.env.local
+.env.*.local
+
+# Test files
+test.html
+test_theme.html
+query
 
 # Logs
 *.log
@@ -29,6 +36,7 @@ pids
 *.pid
 *.seed
 *.pid.lock
+server/uploads/
 
 # Coverage directory used by tools like istanbul
 coverage/

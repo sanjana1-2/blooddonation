@@ -170,7 +170,7 @@ const BloodBanks = () => {
             <div className="no-results">No blood banks found matching your criteria.</div>
           ) : (
             bloodBanks.map(bank => (
-            <div key={bank.id} className="blood-bank-card">
+            <div key={bank.id} className="blood-bank-card glass-premium">
               <div className="bank-info">
                 <h3>{bank.name}</h3>
                 <p className="address">📍 {bank.address}</p>

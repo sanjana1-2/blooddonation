@@ -1,292 +1,192 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import { motion } from 'framer-motion'
+import { useDispatch } from 'react-redux'
+import { setCredentials } from '../store/slices/authSlice'
 import { authAPI } from '../services/api'
-import './Auth.css'
+import { 
+  Heart, 
+  Mail, 
+  Lock, 
+  Eye, 
+  EyeOff, 
+  ArrowRight,
+  ShieldCheck,
+  User,
+  Building,
+  Loader2
+} from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { toast } from 'react-hot-toast'
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  })
+  const [formData, setFormData] = useState({ email: '', password: '' })
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
-  const [errors, setErrors] = useState({})
-  const [rememberMe, setRememberMe] = useState(false)
   
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
-  
-  // Get redirect path from location state or default to home
   const from = location.state?.from?.pathname || '/'
 
-  // Check if user is already logged in
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    const user = localStorage.getItem('user')
-    
-    if (token && user) {
-      const userData = JSON.parse(user)
-      redirectBasedOnRole(userData.role)
-    }
-  }, [])
-
-  // Load remembered email on component mount
-  useEffect(() => {
-    const rememberedEmail = localStorage.getItem('rememberedEmail')
-    if (rememberedEmail) {
-      setFormData(prev => ({ ...prev, email: rememberedEmail }))
-      setRememberMe(true)
-    }
-  }, [])
-
-  const validateForm = () => {
-    const newErrors = {}
-    
-    if (!formData.email) {
-      newErrors.email = 'Email is required'
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
-    
-    if (!formData.password) {
-      newErrors.password = 'Password is required'
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters'
-    }
-    
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-    
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }))
-    }
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const redirectBasedOnRole = (role) => {
-    switch (role) {
-      case 'admin':
-        navigate('/analytics', { replace: true })
-        break
-      case 'bloodbank':
-        navigate('/blood-banks', { replace: true })
-        break
-      case 'hospital':
-        navigate('/blood-requests', { replace: true })
-        break
-      case 'donor':
-        navigate('/donor-profile', { replace: true })
-        break
-      default:
-        navigate(from, { replace: true })
-    }
-  }
-
-  const handleDemoLogin = async (email, password) => {
-    setFormData({ email, password })
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     setIsLoading(true)
-
     try {
-      const response = await authAPI.login({ email, password })
-      
-      // Store token and user data
-      localStorage.setItem('token', response.data.token)
-      localStorage.setItem('user', JSON.stringify(response.data.user))
-      
-      // Handle remember me
-      if (rememberMe) {
-        localStorage.setItem('rememberedEmail', email)
-      }
-      
+      const response = await authAPI.login(formData)
+      dispatch(setCredentials(response.data))
       toast.success(`Welcome back, ${response.data.user.firstName}!`)
-      redirectBasedOnRole(response.data.user.role)
-      
+      navigate(from)
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed')
+      toast.error(error.response?.data?.message || 'Invalid credentials')
     } finally {
       setIsLoading(false)
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    
-    if (!validateForm()) {
-      return
-    }
-    
+  const handleDemoLogin = async (email, password) => {
     setIsLoading(true)
-
     try {
-      const response = await authAPI.login(formData)
-      
-      // Store token and user data
-      localStorage.setItem('token', response.data.token)
-      localStorage.setItem('user', JSON.stringify(response.data.user))
-      
-      // Handle remember me
-      if (rememberMe) {
-        localStorage.setItem('rememberedEmail', formData.email)
-      } else {
-        localStorage.removeItem('rememberedEmail')
-      }
-      
-      toast.success(`Welcome back, ${response.data.user.firstName}!`)
-      redirectBasedOnRole(response.data.user.role)
-      
+      const response = await authAPI.login({ email, password })
+      dispatch(setCredentials(response.data))
+      toast.success(`Demo login successful!`)
+      navigate('/')
     } catch (error) {
-      const errorMessage = error.response?.data?.message || 'Login failed'
-      toast.error(errorMessage)
-      
-      // Set specific field errors if available
-      if (error.response?.status === 401) {
-        setErrors({ password: 'Invalid email or password' })
-      }
+      toast.error('Demo login failed')
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <div className="auth-page">
-      <div className="container">
-        <div className="auth-container">
-          <div className="auth-header">
-            <h1>🩸 Welcome Back</h1>
-            <p>Sign in to your eRaktkosh account</p>
-          </div>
+    <div className="min-h-[90vh] flex items-center justify-center p-4 relative">
+      {/* Decorative Elements */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-rose-500/10 blur-[100px] rounded-full -z-10"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-pink-500/10 blur-[100px] rounded-full -z-10"></div>
 
-          <form className="auth-form" onSubmit={handleSubmit} noValidate>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                placeholder="Enter your email"
-                className={errors.email ? 'error' : ''}
-                autoComplete="email"
-              />
-              {errors.email && <span className="error-message">{errors.email}</span>}
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <div className="password-input-container">
-                <input
-                  id="password"
-                  type={showPassword ? 'text' : 'password'}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your password"
-                  className={errors.password ? 'error' : ''}
-                  autoComplete="current-password"
-                />
-                <button
-                  type="button"
-                  className="password-toggle"
-                  onClick={() => setShowPassword(!showPassword)}
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
-                >
-                  {showPassword ? '👁️' : '👁️‍🗨️'}
-                </button>
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="w-full max-w-md"
+      >
+        <Card className="glass border-rose-100 dark:border-rose-900 shadow-2xl overflow-hidden">
+          <CardHeader className="space-y-1 text-center pb-8 border-b border-rose-100/50 dark:border-rose-900/50 bg-rose-50/30 dark:bg-rose-900/10">
+            <div className="flex justify-center mb-4">
+              <div className="w-12 h-12 gradient-rose rounded-2xl flex items-center justify-center shadow-lg">
+                <Heart className="text-white fill-white" size={24} />
               </div>
-              {errors.password && <span className="error-message">{errors.password}</span>}
             </div>
-
-            <div className="form-options">
-              <label className="checkbox-label">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                />
-                <span className="checkmark"></span>
-                Remember me
-              </label>
-            </div>
-
-            <button 
-              type="submit" 
-              className="btn btn-primary auth-btn"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <>
-                  <span className="spinner"></span>
-                  Signing In...
-                </>
-              ) : (
-                'Sign In'
-              )}
-            </button>
-          </form>
-
-          <div className="auth-links">
-            <Link to="/forgot-password">Forgot Password?</Link>
-            <span>•</span>
-            <Link to="/register">Create Account</Link>
-          </div>
-
-          <div className="demo-accounts">
-            <h4>Quick Demo Login</h4>
-            <div className="demo-grid">
-              <button 
-                className="demo-account-btn"
-                onClick={() => handleDemoLogin('admin@eraktkosh.in', 'admin123')}
-                disabled={isLoading}
-              >
-                <strong>👨‍💼 Admin</strong>
-                <span>Full system access</span>
-              </button>
-              <button 
-                className="demo-account-btn"
-                onClick={() => handleDemoLogin('donor@eraktkosh.in', 'donor123')}
-                disabled={isLoading}
-              >
-                <strong>🩸 Donor</strong>
-                <span>Donor dashboard</span>
-              </button>
-              <button 
-                className="demo-account-btn"
-                onClick={() => handleDemoLogin('hospital@eraktkosh.in', 'hospital123')}
-                disabled={isLoading}
-              >
-                <strong>🏥 Hospital</strong>
-                <span>Request management</span>
-              </button>
-            </div>
-            
-            <div className="demo-credentials">
-              <details>
-                <summary>Manual Login Credentials</summary>
-                <div className="credentials-list">
-                  <div><strong>Admin:</strong> admin@eraktkosh.in / admin123</div>
-                  <div><strong>Donor:</strong> donor@eraktkosh.in / donor123</div>
-                  <div><strong>Hospital:</strong> hospital@eraktkosh.in / hospital123</div>
+            <CardTitle className="text-3xl font-bold tracking-tight">Welcome Back</CardTitle>
+            <CardDescription className="text-slate-500 dark:text-slate-400">
+              Enter your credentials to access your account
+            </CardDescription>
+          </CardHeader>
+          
+          <CardContent className="pt-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email Address</Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                  <Input 
+                    id="email" 
+                    name="email"
+                    type="email" 
+                    placeholder="name@example.com" 
+                    className="pl-10 rounded-xl border-slate-200 dark:border-slate-800 focus:ring-rose-500" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
-              </details>
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <Label htmlFor="password">Password</Label>
+                  <Link to="/forgot-password" size="sm" className="text-xs text-rose-600 hover:underline">
+                    Forgot password?
+                  </Link>
+                </div>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
+                  <Input 
+                    id="password" 
+                    name="password"
+                    type={showPassword ? "text" : "password"} 
+                    placeholder="••••••••" 
+                    className="pl-10 pr-10 rounded-xl border-slate-200 dark:border-slate-800 focus:ring-rose-500" 
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-3 text-slate-400 hover:text-slate-600"
+                  >
+                    {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                  </button>
+                </div>
+              </div>
+              <Button type="submit" className="w-full gradient-rose rounded-xl py-6 text-lg font-bold shadow-lg shadow-rose-500/20" disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Signing in...
+                  </>
+                ) : (
+                  <>
+                    Sign In <ArrowRight className="ml-2 h-5 w-5" />
+                  </>
+                )}
+              </Button>
+            </form>
+          </CardContent>
+
+          <div className="px-8 pb-8 space-y-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t border-slate-200 dark:border-slate-800" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-white dark:bg-slate-950 px-2 text-slate-500">Or continue with demo</span>
+              </div>
             </div>
+
+            <div className="grid grid-cols-3 gap-3">
+              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('admin@eraktkosh.in', 'admin123')}>
+                <ShieldCheck size={16} className="text-rose-600" />
+                <span className="text-[10px] font-bold">Admin</span>
+              </Button>
+              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('donor@eraktkosh.in', 'donor123')}>
+                <User size={16} className="text-blue-600" />
+                <span className="text-[10px] font-bold">Donor</span>
+              </Button>
+              <Button variant="outline" size="sm" className="rounded-xl flex flex-col gap-1 h-auto py-3 border-rose-100 hover:bg-rose-50 dark:border-rose-900 dark:hover:bg-rose-950/20" onClick={() => handleDemoLogin('hospital@eraktkosh.in', 'hospital123')}>
+                <Building size={16} className="text-green-600" />
+                <span className="text-[10px] font-bold">Hospital</span>
+              </Button>
+            </div>
+
+            <CardFooter className="justify-center p-0">
+              <p className="text-sm text-slate-500">
+                Don't have an account?{" "}
+                <Link to="/register" className="text-rose-600 font-bold hover:underline">
+                  Create Account
+                </Link>
+              </p>
+            </CardFooter>
           </div>
-        </div>
-      </div>
+        </Card>
+      </motion.div>
     </div>
   )
 }

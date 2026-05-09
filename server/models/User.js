@@ -47,7 +47,11 @@ const userSchema = new mongoose.Schema({
     address: String,
     city: String,
     state: String,
-    pincode: String
+    pincode: String,
+    coordinates: {
+      lat: Number,
+      lng: Number
+    }
   },
   preferences: {
     notifications: {

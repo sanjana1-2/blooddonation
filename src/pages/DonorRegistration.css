@@ -1,6 +1,6 @@
 .donor-registration {
   padding: 40px 0;
-  background: #f8f9fa;
+  background-color: hsla(var(--muted), 0.2);
   min-height: 100vh;
 }
 
@@ -10,13 +10,16 @@
 }
 
 .registration-header h1 {
-  background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1rem;
+}
+.dark .registration-header h1 {
+  color: white;
+}
+.registration-header h1 {
+  color: #0f172a;
 }
 
 .registration-header p {
@@ -25,11 +28,9 @@
 }
 
 .eligibility-info {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .eligibility-info h3 {
@@ -58,10 +59,8 @@
 }
 
 .registration-form {
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 2.5rem;
+  border-radius: 2.5rem;
 }
 
 .form-section {
@@ -76,10 +75,14 @@
 }
 
 .form-section h3 {
-  color: var(--maroon);
-  margin-bottom: 25px;
-  font-size: 1.4rem;
-  font-weight: bold;
+  color: #e11d48;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+.dark .form-section h3 {
+  color: #f43f5e;
 }
 
 .form-row {

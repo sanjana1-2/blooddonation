@@ -36,6 +36,34 @@ export const requestsAPI = {
   getUrgent: () => api.get('/requests/urgent/list'),
 };
 
+// Camps API
+export const campsAPI = {
+  getAll: () => api.get('/camps'),
+  getById: (id) => api.get(`/camps/${id}`),
+  create: (data) => api.post('/camps', data),
+  rsvp: (id) => api.post(`/camps/${id}/rsvp`),
+};
+
+// Notifications API
+export const notificationsAPI = {
+  getAll: (userId) => api.get(`/notifications/${userId}`),
+  markRead: (id) => api.patch(`/notifications/${id}/read`),
+};
+
+// Blogs API
+export const blogsAPI = {
+  getAll: () => api.get('/blogs'),
+  getById: (id) => api.get(`/blogs/${id}`),
+  create: (data) => api.post('/blogs', data),
+};
+
+// Chats API
+export const chatsAPI = {
+  getAll: (userId) => api.get(`/chats/${userId}`),
+  getMessages: (chatId) => api.get(`/chats/${chatId}/messages`),
+  sendMessage: (chatId, data) => api.post(`/chats/${chatId}/messages`, data),
+};
+
 // Authentication API
 export const authAPI = {
   register: (data) => api.post('/auth/register', data),
@@ -46,7 +74,6 @@ export const authAPI = {
   verifyEmail: (token) => api.post('/auth/verify-email', { token }),
 };
 
-// Add token to requests if available
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -55,14 +82,13 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle token expiration
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.href = '/login';
+      // window.location.href = '/login'; // Prevent infinite loop if called from interceptor
     }
     return Promise.reject(error);
   }

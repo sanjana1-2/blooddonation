@@ -148,7 +148,7 @@ const DonorList = () => {
               {filteredDonors.map((donor, index) => (
                 <div 
                   key={donor._id || index} 
-                  className="donor-card"
+                  className="donor-card glass-premium"
                   onClick={() => navigate(`/donor-profile/${donor._id}`)}
                   style={{ cursor: 'pointer' }}
                 >
