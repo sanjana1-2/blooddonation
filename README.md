@@ -70,13 +70,7 @@ This portal serves as a comprehensive bridge between donors, hospitals, and bloo
    cd ../serverside
    npm install
    ```
-
-4. **Environment Configuration**
-   Create a `.env` file in the `serverside` directory:
-   ```env
-   MONGODB_URI=mongodb://localhost:27017/blooddonation
-   JWT_SECRET=your_secret_key
-   PORT=5001
+5001
    ```
 
 5. **Seed Initial Data (Optional)**
